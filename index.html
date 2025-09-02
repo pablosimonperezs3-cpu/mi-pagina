@@ -1,391 +1,70 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///C:/Users/pablo/Downloads/RIVIERA_MAYA%20(2).html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propuesta de Viaje: Riviera Maya</title>
     <style>
-        /* --- General Styles & Fonts --- */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-        :root {
-            --primary-color: #0077b6;
-            --secondary-color: #00b4d8;
-            --accent-color: #ff6b6b;
-            --text-color: #333;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--bg-light);
-        }
-
-        /* --- Layout & Container --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Header --- */
-        .hero {
-            background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 180, 216, 0.6)), url('https://i.imgur.com/lZMuJmh.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 120px 0;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-        
-        .hero .dates {
-            background-color: rgba(255, 255, 255, 0.2);
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 30px;
-            margin-top: 20px;
-            font-weight: 600;
-            border: 1px solid white;
-        }
-
-        /* --- Section Titles --- */
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* --- Card Styles --- */
-        .card {
-            background: var(--bg-white);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        /* --- Hotel Section --- */
-        #hotel .hotel-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            align-items: center;
-        }
-
-        .hotel-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        .hotel-gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        .hotel-gallery .main-img {
-            grid-column: 1 / -1;
-            height: 300px;
-        }
-
-        .hotel-info ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .hotel-info li {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
-        .hotel-info li::before {
-            content: '✔';
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin-right: 15px;
-            font-weight: bold;
-        }
-        .price {
-            font-weight: 700;
-            color: var(--primary-color);
-            background: #e0f7fa;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        /* --- Flights Section --- */
-        #vuelos .flight-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .flight-card {
-            text-align: center;
-        }
-        .flight-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-        .flight-card .flight-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 15px 0;
-        }
-        .flight-card .flight-details {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .pending-discount {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* --- Excursions Section --- */
-        #excursiones .excursion-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .excursion-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .excursion-card h3 {
-            font-size: 1.4rem;
-        }
-        .excursion-price {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-        }
-
-        /* --- Nightlife Section --- */
-        #fiesta .nightlife-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .nightlife-info {
-            background: var(--bg-white);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 20px;
-        }
-        .nightlife-info p {
-            margin-bottom: 15px;
-        }
-
-        .clubs-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .club-category {
-            background: var(--bg-white);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-        }
-        .club-category h4 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .club-category ul {
-            list-style: none;
-        }
-        .club-category li {
-            margin-bottom: 10px;
-        }
-        .club-name {
-            font-weight: 600;
-        }
-        .club-details {
-            font-size: 0.9em;
-            color: #555;
-        }
-        .special-note {
-            background: var(--accent-color);
-            color: white;
-            font-size: 0.8rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 8px;
-        }
-
-        /* --- Budget Summary Section --- */
-        #presupuesto {
-            background-color: var(--bg-white);
-        }
-        .budget-box {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 30px 40px;
-            border: 2px dashed var(--secondary-color);
-            border-radius: 20px;
-            background-color: #f0faff;
-        }
-        .budget-box .price-range {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 10px 0;
-        }
-        .budget-box p {
-            font-size: 1.1rem;
-            color: #555;
-            margin: 0;
-        }
-        
-        /* --- Final Message Section --- */
-        #mensaje-final {
-            text-align: center;
-        }
-        #mensaje-final .container {
-            max-width: 800px;
-        }
-        #mensaje-final p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-        .cta-button {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s;
-            display: inline-block;
-        }
-        .cta-button:hover {
-            background-color: #e63946;
-            transform: translateY(-3px);
-        }
-        
-        /* --- Footer --- */
-        footer {
-            background-color: var(--text-color);
-            color: #ccc;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            #hotel .hotel-layout {
-                grid-template-columns: 1fr;
-            }
-            .hotel-gallery { margin-bottom: 30px; }
-            #fiesta .nightlife-container {
-                grid-template-columns: 1fr;
-            }
-             .nightlife-info { position: static; margin-bottom: 30px; }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            h2 { font-size: 2rem; }
-            #excursiones .excursion-grid {
-                grid-template-columns: 1fr;
-            }
-            .budget-box .price-range { font-size: 2.2rem; }
-        }
-
+        :root { --primary-color: #0077b6; --secondary-color: #00b4d8; --accent-color: #ff6b6b; --text-color: #333; --bg-light: #f8f9fa; --bg-white: #ffffff; --shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: var(--text-color); background-color: var(--bg-light); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .hero { background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 180, 216, 0.6)), url('isla-mujeres.jpeg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 120px 0; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.5rem; font-weight: 300; }
+        .hero .dates { background-color: rgba(255, 255, 255, 0.2); display: inline-block; padding: 10px 25px; border-radius: 30px; margin-top: 20px; font-weight: 600; border: 1px solid white; }
+        h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); position: relative; }
+        h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--secondary-color); margin: 10px auto 0; border-radius: 2px; }
+        h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem; }
+        .card { background: var(--bg-white); border-radius: 15px; box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+        .card-content { padding: 25px; }
+        #hotel .hotel-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: center; }
+        .hotel-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .hotel-gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); }
+        .hotel-gallery .main-img { grid-column: 1 / -1; height: 300px; }
+        .hotel-info ul { list-style: none; padding-left: 0; }
+        .hotel-info li { font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; }
+        .hotel-info li::before { content: '✔'; color: var(--secondary-color); font-size: 1.5rem; margin-right: 15px; font-weight: bold; }
+        .price { font-weight: 700; color: var(--primary-color); background: #e0f7fa; padding: 5px 10px; border-radius: 5px; }
+        #vuelos .flight-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .flight-card { text-align: center; }
+        .flight-card h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color); }
+        .flight-card .flight-price { font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin: 15px 0; }
+        .flight-card .flight-details { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        .pending-discount { background-color: var(--accent-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-top: 10px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        #excursiones .excursion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .excursion-card img { width: 100%; height: 220px; object-fit: cover; }
+        .excursion-card h3 { font-size: 1.4rem; }
+        .excursion-price { font-weight: 600; font-size: 1.2rem; color: var(--secondary-color); }
+        #fiesta .nightlife-container { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+        .nightlife-info { background: var(--bg-white); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); position: sticky; top: 20px; }
+        .nightlife-info p { margin-bottom: 15px; }
+        .clubs-grid { display: grid; gap: 20px; }
+        .club-category { background: var(--bg-white); border-radius: 15px; padding: 25px; box-shadow: var(--shadow); }
+        .club-category h4 { font-size: 1.3rem; color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 15px; }
+        .club-category ul { list-style: none; }
+        .club-category li { margin-bottom: 10px; }
+        .club-name { font-weight: 600; }
+        .club-details { font-size: 0.9em; color: #555; }
+        .special-note { background: var(--accent-color); color: white; font-size: 0.8rem; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
+        #presupuesto { background-color: var(--bg-white); }
+        .budget-box { max-width: 800px; margin: 0 auto; text-align: center; padding: 30px 40px; border: 2px dashed var(--secondary-color); border-radius: 20px; background-color: #f0faff; }
+        .budget-box .price-range { font-size: 2.8rem; font-weight: 700; color: var(--primary-color); margin: 10px 0; }
+        .budget-box p { font-size: 1.1rem; color: #555; margin: 0; }
+        #mensaje-final { text-align: center; }
+        #mensaje-final .container { max-width: 800px; }
+        #mensaje-final p { font-size: 1.1rem; margin-bottom: 25px; }
+        .cta-button { background-color: var(--accent-color); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; transition: background-color 0.3s, transform 0.3s; display: inline-block; }
+        .cta-button:hover { background-color: #e63946; transform: translateY(-3px); }
+        footer { background-color: var(--text-color); color: #ccc; text-align: center; padding: 20px 0; font-size: 0.9rem; }
+        @media (max-width: 992px) { #hotel .hotel-layout { grid-template-columns: 1fr; } .hotel-gallery { margin-bottom: 30px; } #fiesta .nightlife-container { grid-template-columns: 1fr; } .nightlife-info { position: static; margin-bottom: 30px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.8rem; } .hero p { font-size: 1.2rem; } h2 { font-size: 2rem; } #excursiones .excursion-grid { grid-template-columns: 1fr; } .budget-box .price-range { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
-
     <header class="hero">
         <div class="container">
             <h1>Viaje de Fin de Exámenes<br>Riviera Maya</h1>
@@ -393,15 +72,14 @@
             <div class="dates">20 al 26 de Enero</div>
         </div>
     </header>
-
     <main>
-        <section id="hotel" class="container visible">
+        <section id="hotel" class="container">
             <h2>Vuestro Alojamiento: Comodidad y Flexibilidad</h2>
             <div class="hotel-layout">
                 <div class="hotel-gallery">
-                    <img src="./Viaje_ Riviera_files/ymmNbmq.jpeg" alt="Habitación de hotel con cocina" class="main-img">
-                    <img src="./Viaje_ Riviera_files/SVMcTcn.jpeg" alt="Otra vista de la habitación del hotel">
-                    <img src="./Viaje_ Riviera_files/N0Nek6E.jpeg" alt="Piscina del hotel en la azotea">
+                    <img src="hotel-habitacion1.jpeg" alt="Habitación de hotel con cocina" class="main-img">
+                    <img src="hotel-habitacion2.jpeg" alt="Otra vista de la habitación del hotel">
+                    <img src="hotel-piscina.jpeg" alt="Piscina del hotel en la azotea">
                 </div>
                 <div class="hotel-info">
                     <h3>Un Oasis de Descanso con Todas las Facilidades</h3>
@@ -416,49 +94,21 @@
                 </div>
             </div>
         </section>
-
-        <section id="vuelos" class="container visible">
+        <section id="vuelos" class="container">
             <h2>Opciones de Vuelo: ¡Elegid Cómo Queréis Viajar!</h2>
             <div class="flight-options">
-                <div class="card flight-card">
-                    <div class="card-content">
-                        <h4>Opción Económica</h4>
-                        <div class="flight-price">510€</div>
-                        <p class="flight-details">Equipaje de mano (10kg) <br> Vuelo con escala</p>
-                    </div>
-                </div>
-                <div class="card flight-card">
-                    <div class="card-content">
-                        <h4>Opción Directa y Ligera</h4>
-                        <div class="flight-price">597,44€</div>
-                        <p class="flight-details">Equipaje de mano (10kg) <br> Vuelo sin escalas</p>
-                        <span class="pending-discount">PENDIENTE DE PEDIR COTIZACIÓN</span>
-                    </div>
-                </div>
-                <div class="card flight-card">
-                    <div class="card-content">
-                        <h4>Opción Con Todo</h4>
-                        <div class="flight-price">638€</div>
-                        <p class="flight-details">Maleta facturada incluida <br> Vuelo con escala</p>
-                    </div>
-                </div>
-                <div class="card flight-card">
-                    <div class="card-content">
-                        <h4>Opción Premium</h4>
-                        <div class="flight-price">707€</div>
-                        <p class="flight-details">Maleta facturada incluida <br> Vuelo sin escalas</p>
-                        <span class="pending-discount">PENDIENTE DE PEDIR COTIZACIÓN</span>
-                    </div>
-                </div>
+                <div class="card flight-card"> <div class="card-content"> <h4>Opción Económica</h4> <div class="flight-price">510€</div> <p class="flight-details">Equipaje de mano (10kg) <br> Vuelo con escala</p> </div> </div>
+                <div class="card flight-card"> <div class="card-content"> <h4>Opción Directa y Ligera</h4> <div class="flight-price">597,44€</div> <p class="flight-details">Equipaje de mano (10kg) <br> Vuelo sin escalas</p> <span class="pending-discount">PENDIENTE DE PEDIR COTIZACIÓN</span> </div> </div>
+                <div class="card flight-card"> <div class="card-content"> <h4>Opción Con Todo</h4> <div class="flight-price">638€</div> <p class="flight-details">Maleta facturada incluida <br> Vuelo con escala</p> </div> </div>
+                <div class="card flight-card"> <div class="card-content"> <h4>Opción Premium</h4> <div class="flight-price">707€</div> <p class="flight-details">Maleta facturada incluida <br> Vuelo sin escalas</p> <span class="pending-discount">PENDIENTE DE PEDIR COTIZACIÓN</span> </div> </div>
             </div>
              <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #555;"><strong>Nota importante:</strong> Gracias a nuestro convenio, podemos conseguir un descuento para vuestro grupo en los vuelos directos. El precio final podría ser aún mejor.</p>
         </section>
-
         <section id="excursiones" class="container">
             <h2>Aventuras Opcionales: Descubrid el Paraíso</h2>
             <div class="excursion-grid">
                 <div class="card excursion-card">
-                    <img src="./Viaje_ Riviera_files/lZMuJmh.jpeg" alt="Playa de Isla Mujeres">
+                    <img src="isla-mujeres.jpeg" alt="Playa de Isla Mujeres">
                     <div class="card-content">
                         <h3>Excursión a Isla Mujeres</h3>
                         <p>Un día en una isla de ensueño. Snorkel, playas de arena blanca y un ambiente caribeño único.</p>
@@ -466,7 +116,7 @@
                     </div>
                 </div>
                 <div class="card excursion-card">
-                    <img src="./Viaje_ Riviera_files/WRvdoY9.jpeg" alt="Ruinas de Tulum">
+                    <img src="ruinas-tulum.jpeg" alt="Ruinas de Tulum">
                     <div class="card-content">
                         <h3>Visita a las Ruinas de Tulum</h3>
                         <p>Descubrid la historia maya en un enclave espectacular, con ruinas situadas sobre un acantilado frente al mar turquesa.</p>
@@ -474,7 +124,7 @@
                     </div>
                 </div>
                 <div class="card excursion-card">
-                    <img src="./Viaje_ Riviera_files/Er4LvDp.jpeg" alt="Cenote Azul">
+                    <img src="cenote-azul.jpeg" alt="Cenote Azul">
                     <div class="card-content">
                         <h3>Baño en el Cenote Azul</h3>
                         <p>Sumergíos en las aguas cristalinas de un cenote a cielo abierto. Una experiencia natural y refrescante que no olvidaréis.</p>
@@ -483,7 +133,6 @@
                 </div>
             </div>
         </section>
-
         <section id="fiesta" class="container">
             <h2>La Noche es Vuestra: Guía de Fiesta</h2>
             <div class="nightlife-container">
@@ -516,7 +165,6 @@
                 </div>
             </div>
         </section>
-
         <section id="presupuesto">
             <div class="container">
                 <div class="budget-box">
@@ -526,7 +174,6 @@
                 </div>
             </div>
         </section>
-
         <section id="mensaje-final">
             <div class="container">
                 <h2>¿Listos para el viaje de vuestra vida?</h2>
@@ -536,28 +183,10 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container">
-            <p>© 2024 Tu Agencia de Viajes | Todos los derechos reservados.</p>
+            <p>&copy; 2024 Tu Agencia de Viajes | Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script>
-        // Simple JavaScript for fade-in effect on scroll
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
-
-</body></html>
+</body>
+</html>
